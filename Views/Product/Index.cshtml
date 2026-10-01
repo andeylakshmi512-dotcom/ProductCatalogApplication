@@ -1,0 +1,34 @@
+﻿@model List<ProductCatalogApplication.Models.Product>
+@{
+    ViewBag.Title = "Product";
+}
+@{
+    Layout = null;
+}
+
+<h2>Product Catalog_92400120462_Andey Lakshmi</h2>
+<table border="1">
+    <tr>
+        <th>ProductID</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var Product in Model)
+    {
+        <tr>
+            <td>@Product.ProductID</td>
+            <td>@Product.ProductName</td>
+            <td>@Product.Description</td>
+            <td>@Product.Price</td>
+            <td>@Product.Category</td>
+            <td>
+                @Html.ActionLink("View Details", "Details", "Product", new { id = Product.ProductID }, null)
+        </td>
+    </tr>
+}
+</table>
+
